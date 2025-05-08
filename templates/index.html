@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 Servo Controller</title>
+    <!-- Bootstrap CSS (Replit dark theme) -->
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container py-4">
+        <header class="text-center mb-5">
+            <h1>ESP32 Servo Controller</h1>
+            <p class="lead">Control your servo motor with precision</p>
+        </header>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="text-center mb-4">
+                            <div class="display-angle">
+                                <h2 id="angle-display">0°</h2>
+                            </div>
+                            <div id="status-indicator" class="badge bg-secondary mb-2">Not connected</div>
+                        </div>
+
+                        <div class="servo-control">
+                            <label for="angle-slider" class="form-label">Servo Angle (0-180°)</label>
+                            <input type="range" class="form-range" id="angle-slider" min="0" max="180" value="0">
+                            
+                            <div class="d-flex justify-content-between mt-3">
+                                <button id="reverse-btn" class="btn btn-primary">
+                                    <i class="bi bi-arrow-left"></i> Reverse (−10°)
+                                </button>
+                                <button id="forward-btn" class="btn btn-primary">
+                                    Forward (+10°) <i class="bi bi-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Connection Status</h5>
+                        <div id="connection-log" class="mt-2 small">
+                            <div class="text-muted">Waiting for connection...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/servo_control.js') }}"></script>
+</body>
+</html>
